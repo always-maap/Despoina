@@ -1,0 +1,6 @@
+smtp:
+  server: smtp.gmail.com
+  username: example@gmail.com
+  password: secret
+email:
+  subject: test
