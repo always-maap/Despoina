@@ -15,11 +15,11 @@ As you can see in you should have a sheet like
 this (if your column names are different feel free to change them in code):
 
 ```python
-STUDENT_ID = "شماره دانشجویی"
-NAME = "نام"
-EMAIL = "ایمیل"
-GRADE = 100
-NOTE = "توضیحات"
+id = "شماره دانشجویی"
+name = "نام"
+email = "ایمیل"
+grade = 100
+mistake = "توضیحات"
 ```
 
 ```html
@@ -60,6 +60,6 @@ _Allow less secure apps_. Otherwise, you need to use
 You just need to install rust using [rustup](https://rustup.rs/).
 
 ```bash
-cp con.yml.example conf.yml
+cp conf.yml.example conf.yml
 cargo run -- -c ./conf.yml
 ```

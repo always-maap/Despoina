@@ -1,9 +1,47 @@
 <html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 80px 20px;
+        border: 1px solid #eaeaea;
+        border-radius: 5px;
+        text-align: right;
+        line-height: 1.7;
+        font-size: 16px;
+        color: #0f0f0f;
+        text-align: center;
+      }
+
+      .grade {
+        font-size: 48px;
+      }
+    </style>
+  </head>
   <body dir="rtl">
-    <p>
-      با سلام<br />
-      دانشجوی عزیز {{ name }}<br />
-      نمره تمرین شما
-    </p>
+    <div class="container">
+      <p>
+        سلام {{ student_name }} عزیز<br />
+        نمره {{ exercise_name }} شما
+      </p>
+      <div>
+        <strong class="grade">{{ student_grade }}</strong>
+      </div>
+
+      <p>{% if student_mistake %} {{ student_mistake }} {% endif %}</p>
+
+      <p>
+        در صورت هرگونه اعتراض یا مشکلی با ایمیل زیر در تماس باشید.<br />
+
+        <a href="mailto:{{ sender_email }}">{{ sender_email }}</a>
+      </p>
+    </div>
   </body>
 </html>
