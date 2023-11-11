@@ -61,5 +61,5 @@ You just need to install rust using [rustup](https://rustup.rs/).
 
 ```bash
 cp conf.yml.example conf.yml
-cargo run -- -c ./conf.yml
+cargo run -- -c ./conf.yml -f ./results.csv
 ```
