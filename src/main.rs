@@ -1,4 +1,7 @@
+mod cli;
+
 use clap::Parser;
+use cli::{Cli, Config};
 use csv;
 use lettre::{
     message::header, transport::smtp::authentication::Credentials, AsyncSmtpTransport,
@@ -10,7 +13,6 @@ use std::{
     fs::{self, File},
 };
 use tera::Tera;
-use Despoina::cli::{Cli, Config};
 
 #[derive(Deserialize)]
 struct Student {
@@ -69,9 +71,14 @@ async fn main() -> Result<(), Box<dyn Error>> {
                 .credentials(creds)
                 .build();
 
-        match mailer.send(email).await {
-            Ok(_) => println!("Email sent to {}", student_email),
-            Err(e) => panic!("Could not send email: {e:?}"),
+        if cli.dry_run {
+            println!("Dry run: email would be sent to {}", student_email);
+            continue;
+        } else {
+            match mailer.send(email).await {
+                Ok(_) => println!("Email sent to {}", student_email),
+                Err(e) => panic!("Could not send email: {e:?}"),
+            }
         }
     }
 

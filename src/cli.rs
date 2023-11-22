@@ -29,4 +29,8 @@ pub struct Cli {
 
     #[arg(short, long, value_name = "FILE", required = true)]
     pub file: PathBuf,
+
+    // short should be -n
+    #[arg(short = 'n', long)]
+    pub dry_run: bool,
 }
